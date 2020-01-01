@@ -18,6 +18,10 @@ const routes = [
         path: '/student_home',
         name: 'student_home',
         component: ()=> import('../views/StudentHome/index.vue')
+    },
+    {
+        path: '/testpaper',
+        component: ()=> import("../components/Main/TestPaper/PaperMain")
     }
 ]
 
