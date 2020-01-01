@@ -34,6 +34,8 @@
 </template>
 
 <script>
+    import router from "../../router";
+
     export default {
         name:'login',
         data(){
@@ -108,12 +110,31 @@
             submitForm() {
                 let data = {
                     account:this.ruleForm.account,
-                    password:this.ruleForm.password
+                    password:this.ruleForm.password,
                 }
-                this.axios.post("/login",data).then(function (res) {
-                    window.console.log(res)
-                })
-            },
+
+                this.axios.post(
+                    'student/login',
+                    data).then((res)=> {
+                        window.console.log(res)
+                        if(res.data == true){
+                            this.axios.post('student/info').then((res) =>{
+                                window.console.log(res)
+                                this.$store.commit("updateStudentInfo",res.data)
+
+                            })
+                            this.axios.post('student/showJointClass').then((res) =>{
+                                window.console.log(res)
+                                this.$store.commit("updateStudentClassInfo",res.data)
+                            })
+                            router.push("student_home")
+                        }else {
+                            window.alert('登录失败')
+                        }
+
+                    })
+
+            }
         }
     }
 </script>

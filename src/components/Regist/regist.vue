@@ -34,6 +34,7 @@
 </template>
 
 <script>
+
     export default {
         name:'regist',
         data(){
@@ -129,11 +130,29 @@
             submitForm() {
                 let data = {
                     account:this.ruleForm.account,
-                    password:this.ruleForm.password
+                    password:this.ruleForm.password,
                 }
-                this.axios.post("/regist",data).then(function (res) {
+
+                var url = ""
+                if(this.radio1 === "学生"){
+                    url = "student/register"
+                }else{
+                    url = "teacher/register"
+                }
+
+                this.axios.post(
+                    url,
+                    data).then((res)=> {
                     window.console.log(res)
+                    if(res.data == true){
+                        window.alert('注册成功')
+                        window.location.reload()
+                    }else {
+                        window.alert('注册失败')
+                    }
+
                 })
+
             },
         }
     }
