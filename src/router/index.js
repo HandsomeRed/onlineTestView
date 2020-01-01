@@ -21,7 +21,7 @@ const routes = [
     },
     {
         path: '/testpaper',
-        component: ()=> import("../components/Main/TestPaper/PaperMain")
+        component: ()=> import("../components/Header/PaperHander")
     }
 ]
 
