@@ -47,7 +47,7 @@
 
 
     .question-content {
-
+        margin-left: 30px;
         padding: 30px 0;
         position: relative;
     }
@@ -125,6 +125,7 @@
         margin-left: 20px;
         display: block;
         line-height: 40px;
+        font-weight: 400;
     }
     .answers .words .words-option {
         position: absolute;

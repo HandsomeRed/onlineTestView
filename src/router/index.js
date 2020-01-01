@@ -22,6 +22,14 @@ const routes = [
     {
         path: '/testpaper',
         component: ()=> import("../components/Header/PaperHander")
+    },{
+        path: '/teacher_home',
+        name: 'teacher_home',
+        component: ()=> import('../views/TeacherHome/index.vue')
+    },{
+        path: '/student_exam',
+        name: 'student_exam',
+        component: ()=> import('../views/Test/Student/Exam/index.vue')
     }
 ]
 

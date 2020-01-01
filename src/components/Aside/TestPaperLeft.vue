@@ -15,7 +15,7 @@
 
                         <div class="card-content">
 
-                            <div class="card-content-title">单选题(共7题，合计7.0分)</div>
+                            <div class="card-content-title">单选题(共10题，合计100分)</div>
 
 
                             <div class="box-list">
@@ -55,6 +55,21 @@
                                     <span class="box icon-box question_marked"></span>
                                 </div>
 
+                                <div class="box normal-box question_cbox s1">
+                                    <a class="iconBox questions_5e04141cd172bf4c61b2d88b" href="#5e04141cd172bf4c61b2d88b" questionsid="5e04141cd172bf4c61b2d88b" num="questions_5e04141cd172bf4c61b2d88b" perscore="1.0">8</a>
+                                    <span class="box icon-box question_marked"></span>
+                                </div>
+
+                                <div class="box normal-box question_cbox s1">
+                                    <a class="iconBox questions_5e04141cd172bf4c61b2d88b" href="#5e04141cd172bf4c61b2d88b" questionsid="5e04141cd172bf4c61b2d88b" num="questions_5e04141cd172bf4c61b2d88b" perscore="1.0">9</a>
+                                    <span class="box icon-box question_marked"></span>
+                                </div>
+
+                                <div class="box normal-box question_cbox s1">
+                                    <a class="iconBox questions_5e04141cd172bf4c61b2d88b" href="#5e04141cd172bf4c61b2d88b" questionsid="5e04141cd172bf4c61b2d88b" num="questions_5e04141cd172bf4c61b2d88b" perscore="1.0">10</a>
+                                    <span class="box icon-box question_marked"></span>
+                                </div>
+
                             </div>
                             <div class="split"></div>
                         </div>
@@ -69,6 +84,7 @@
                     <span class="icon-label">未答</span>
                     <span class="box icon-box marked"></span>
                     <span class="icon-label">标记</span>
+                    <el-button type="primary" size="small" style="margin-left: 20px">提交试卷</el-button>
                 </div>
             </div>
         </div>
@@ -83,7 +99,10 @@
 
 <style scoped>
 
-
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
     .numberCardModal .modal-number-card {
         width: 100%;
         margin: 0;
@@ -289,7 +308,7 @@
         box-shadow: 0 1px 4px 0 rgba(58,62,81,0.10);
     }
     .numberCardModal {
-        left: 90px;
+        left: 20px;
     }
     .modal-number-card .modal-body .card-content .box-list .box .iconBox {
         width: 27px;
