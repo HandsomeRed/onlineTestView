@@ -20,8 +20,8 @@
                     <div class="empty-title">空空荡荡的～</div>
                 </div>
                 -->
-
-                <div class="item-wrapper item-exam-wrapper clearfix"  v-for="studentClass in classList" v-bind:key="studentClass.id">
+                <div class="item-wrapper item-exam-wrapper clearfix"  v-for="(studentClass, index) in cl" v-bind:key='index'>
+                    {{index}}
                     <div class="item item-exam item-normal animate">
                         <div class="item-title">
                             {{studentClass.name}}
@@ -56,11 +56,18 @@
         name: "class",
         data(){
         },
-        computed:{
-            classList(){
-                return this.$store.getters.studentClass
+        computed: {
+          cl:{
+            get(){
+              window.console.log(this.$store.getters.studentClass)
+              window.console.log(111111)
+              return this.$store.getters.studentClass
             }
+          }
+        },
+        methods:{
         }
+
     }
 </script>
 

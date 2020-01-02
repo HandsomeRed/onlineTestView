@@ -126,8 +126,9 @@
                             this.axios.post('student/showJointClass').then((res) =>{
                                 window.console.log(res)
                                 this.$store.commit("updateStudentClassInfo",res.data)
+                                router.push("student_home")
                             })
-                            router.push("student_home")
+
                         }else {
                             window.alert('登录失败')
                         }
