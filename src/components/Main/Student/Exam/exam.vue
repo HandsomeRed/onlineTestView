@@ -28,7 +28,7 @@
                 <div class="item-wrapper item-exam-wrapper clearfix">
                     <div class="item item-exam item-normal animate">
                         <div class="item-title">
-                            试卷示例
+                            历史考试
                         </div>
 
                         <div class="item-row">
@@ -60,6 +60,7 @@
     export default {
         name: "exam"
     }
+
 </script>
 
 <style scoped>

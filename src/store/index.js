@@ -17,12 +17,21 @@ export default new Vuex.Store({
       state.student.info = info
     },
     updateStudentClassInfo(state,info){
-      state.student.class = info
+      window.console.log(info)
+      state.student.class = [{
+        id: 1,
+        name: "classOne",
+        classCode: "1254088"
+
+      }]
     }
   }
   ,
   actions: {
   },
   modules: {
+  },
+  getters:{
+    studentClass:state => {return state.student.class}
   }
 })
