@@ -1,21 +1,5 @@
 <template>
-    <div class="header-wrapper">
-        <div class="header-title">
-            <div class="header-tab active">
-                <a href="">当前考试</a>
-            </div>
-            <div class="header-tab">
-                <a href="">历史考试</a>
-            </div>
-            <div class="header-tab">
-                <a href="">错题本</a>
-            </div>
-        </div>
-
-        <div class="split"></div>
-
         <div class="body-wrapper">
-            <div class="item-wrapper item-exam-wrapper clearfix">
                 <!--
                 <div class="content-empty">
                     <div class="empty-header">
@@ -25,40 +9,49 @@
                 </div>
                 -->
 
-                <div class="item-wrapper item-exam-wrapper clearfix">
+                <div class="item-wrapper item-exam-wrapper clearfix"  v-for="(exam, index) in examList" v-bind:key='index'>
                     <div class="item item-exam item-normal animate">
                         <div class="item-title">
-                            历史考试
+                            {{exam.name}}
                         </div>
 
                         <div class="item-row">
                             <div class="item-label">学科：</div>
-                            <div class="item-data">历史</div>
+                            <div class="item-data">静态学科</div>
                         </div>
 
                         <div class="item-row item-start-time">
                             <div class="item-label">考试时间：</div>
-                            <div class="item-data">2019-12-30 10:23～2020-01-02 10:23</div>
+                            <div class="item-data">{{exam.start_time}}～{{exam.release_time}}</div>
                         </div>
 
                         <div class="item-row item-row-score">
                             <div class="item-label">考试时长：</div>
-                            <div class="item-data">60分钟</div>
+                            <div class="item-data">{{exam.duration}}</div>
                         </div>
 
                         <el-button type="primary" class="exam-btn">查看试卷</el-button>
                     </div>
                 </div>
-
-
-            </div>
         </div>
-    </div>
 </template>
 
 <script>
     export default {
-        name: "exam"
+        name: "exam",
+        data(){
+        },
+        computed: {
+            examList:{
+                get(){
+                    window.console.log(this.$store.getters.studentExamList)
+                    window.console.log(22222)
+                    return this.$store.getters.studentExamList
+                }
+            }
+        },
+        methods:{
+        }
     }
 
 </script>

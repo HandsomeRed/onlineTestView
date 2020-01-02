@@ -5,7 +5,7 @@
         <el-table
                 :data="tableData"
                 style="width: 100%"
-                height="250">
+                height="80vh">
             <el-table-column
                     fixed
                     prop="test_name"

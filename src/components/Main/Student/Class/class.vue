@@ -1,54 +1,42 @@
 <template>
-    <div class="header-wrapper">
-        <div class="header-title">
-            <div class="header-tab active">
-                <a href="">我的班级</a>
-            </div>
-            <div class="header-tab">
-                <a href="">加入班级</a>
-            </div>
-        </div>
-
-        <div class="split"></div>
 
         <div class="body-wrapper">
-                <!--
-                <div class="content-empty">
-                    <div class="empty-header">
-                        <img class="img" src="https://s1.kaoshixing.com/static/base/images/empty-page.png">
-                    </div>
-                    <div class="empty-title">空空荡荡的～</div>
+            <!--
+            <div class="content-empty">
+                <div class="empty-header">
+                    <img class="img" src="https://s1.kaoshixing.com/static/base/images/empty-page.png">
                 </div>
-                -->
-
-                <div class="item-wrapper item-exam-wrapper clearfix"  v-for="studentClass in classList" v-bind:key="studentClass.id">
-                    <div class="item item-exam item-normal animate">
-                        <div class="item-title">
-                            {{studentClass.name}}
-                        </div>
-
-                        <div class="item-row item-start-time">
-                            <div class="item-label">序列号：</div>
-                            <div class="item-data">{{studentClass.classCode}}</div>
-                        </div>
-
-                        <div class="item-row item-row-score">
-                            <div class="item-label">教师：</div>
-                            <div class="item-data">李大红</div>
-                        </div>
-
-                        <div class="item-row item-row-score">
-                            <div class="item-label">总人数：</div>
-                            <div class="item-data">10人</div>
-                        </div>
-
-                        <el-button type="primary" class="exam-btn">查看班级</el-button>
+                <div class="empty-title">空空荡荡的～</div>
+            </div>
+            -->
+            <div class="item-wrapper item-exam-wrapper clearfix"  v-for="(studentClass, index) in cl" v-bind:key='index'>
+                <div class="item item-exam item-normal animate">
+                    <div class="item-title">
+                        {{studentClass.name}}
                     </div>
+
+                    <div class="item-row item-start-time">
+                        <div class="item-label">序列号：</div>
+                        <div class="item-data">{{studentClass.classCode}}</div>
+                    </div>
+
+                    <div class="item-row item-row-score">
+                        <div class="item-label">教师：</div>
+                        <div class="item-data">李大红</div>
+                    </div>
+
+                    <div class="item-row item-row-score">
+                        <div class="item-label">总人数：</div>
+                        <div class="item-data">10人</div>
+                    </div>
+
+                    <el-button type="primary" class="exam-btn">查看班级</el-button>
                 </div>
+            </div>
 
 
         </div>
-    </div>
+
 </template>
 
 <script>
@@ -56,11 +44,18 @@
         name: "class",
         data(){
         },
-        computed:{
-            classList(){
-                return this.$store.getters.studentClass
+        computed: {
+            cl:{
+                get(){
+                    window.console.log(this.$store.getters.studentClass)
+                    window.console.log(111111)
+                    return this.$store.getters.studentClass
+                }
             }
+        },
+        methods:{
         }
+
     }
 </script>
 

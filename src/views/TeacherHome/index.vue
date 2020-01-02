@@ -8,7 +8,7 @@
                 <TeacherAside></TeacherAside>
             </el-aside>
             <el-main style="background-color: #f1f3f8">
-                <class></class>
+                <question-bank></question-bank>
             </el-main>
         </el-container>
     </el-container>
@@ -17,10 +17,10 @@
 <script>
     import TeacherHeader from "../../components/Header/TeacherHeader";
     import TeacherAside from "../../components/Aside/TeacherAside";
-    import Class from "../../components/Main/Teacher/Class/class";
+    import QuestionBank from "../../components/QuestionBank/QuestionBank";
     export default {
         name: "index",
-        components: {Class, TeacherAside, TeacherHeader}
+        components: {QuestionBank, TeacherAside, TeacherHeader}
     }
 </script>
 

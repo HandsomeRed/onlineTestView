@@ -30,6 +30,10 @@ const routes = [
         path: '/student_exam',
         name: 'student_exam',
         component: ()=> import('../views/Test/Student/Exam/index.vue')
+    },{
+        path: '/student_home_exam',
+        name: 'student_home_exam',
+        component: ()=> import('../views/StudentHome/examIndex.vue')
     }
 ]
 

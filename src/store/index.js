@@ -3,10 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const state = new  Vuex.Store({
   state: {
     student:{
-
+      cl:null,
+      examList:null
     },
     teacher:{
 
@@ -17,13 +18,10 @@ export default new Vuex.Store({
       state.student.info = info
     },
     updateStudentClassInfo(state,info){
-      window.console.log(info)
-      state.student.class = [{
-        id: 1,
-        name: "classOne",
-        classCode: "1254088"
-
-      }]
+      state.student.cl = info
+    },
+    updateStudentExamListInfo(state,info){
+      state.student.exameList = info
     }
   }
   ,
@@ -32,6 +30,9 @@ export default new Vuex.Store({
   modules: {
   },
   getters:{
-    studentClass:state => {return state.student.class}
+    studentClass:state => {return state.student.cl},
+    studentExamList:state => {return state.student.examList}
   }
 })
+
+export default state

@@ -11,16 +11,19 @@
                 <div class="header-wrapper">
                     <div class="header-title">
                         <div class="header-tab active">
-                            <a href="">我的班级</a>
+                            <a href="">当前考试</a>
                         </div>
                         <div class="header-tab">
-                            <a href="">加入班级</a>
+                            <a href="">历史考试</a>
+                        </div>
+                        <div class="header-tab">
+                            <a href="">错题本</a>
                         </div>
                     </div>
 
                     <div class="split"></div>
 
-                    <class></class>
+                    <exam></exam>
 
                 </div>
 
@@ -32,10 +35,10 @@
 <script>
     import StudentHeader from "../../components/Header/StudentHeader";
     import StudentAside from "../../components/Aside/StudentAside";
-    import Class from "../../components/Main/Student/Class/class";
+    import Exam from "../../components/Main/Student/Exam/exam.vue";
     export default {
-        name: "home",
-        components: {Class, StudentAside, StudentHeader},
+        name: "examIndex",
+        components: {Exam, StudentAside, StudentHeader},
         comName: "exam"
     }
 </script>

@@ -3,33 +3,33 @@
         <!-- 表单开始 -->
         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="login-form" size="medium ">
 
-                    <el-form-item prop="username" class="item-form">
-                        <label>账号</label>
-                        <el-input type="text" v-model="ruleForm.account" autocomplete="off" maxlength="16"></el-input>
-                    </el-form-item>
+            <el-form-item prop="username" class="item-form">
+                <label>账号</label>
+                <el-input type="text" v-model="ruleForm.account" autocomplete="off" maxlength="16"></el-input>
+            </el-form-item>
 
-                    <el-form-item prop="password" class="item-form">
-                        <label>密码</label>
-                        <el-input type="password" v-model="ruleForm.password" autocomplete="off" minlength="6" maxlength="20"></el-input>
-                    </el-form-item>
+            <el-form-item prop="password" class="item-form">
+                <label>密码</label>
+                <el-input type="password" v-model="ruleForm.password" autocomplete="off" minlength="6" maxlength="20"></el-input>
+            </el-form-item>
 
-                    <el-form-item prop="code" class="item-form">
-                        <label>验证码</label>
-                        <el-row :gutter="10">
-                            <el-col :span="16">
-                                <el-input v-model.number="ruleForm.code" minlength="6" maxlength="6"></el-input>
-                            </el-col>
-                            <el-col :span="8">
-                                <el-button type="success" class="block2">验证码</el-button>
-                            </el-col>
-                        </el-row>
+            <el-form-item prop="code" class="item-form">
+                <label>验证码</label>
+                <el-row :gutter="10">
+                    <el-col :span="16">
+                        <el-input v-model.number="ruleForm.code" minlength="6" maxlength="6"></el-input>
+                    </el-col>
+                    <el-col :span="8">
+                        <el-button type="success" class="block2">验证码</el-button>
+                    </el-col>
+                </el-row>
 
-                    </el-form-item>
+            </el-form-item>
 
-                    <el-form-item>
-                        <el-button type="danger" @click="submitForm" class="login-btn block1">提交</el-button>
-                    </el-form-item>
-                </el-form>
+            <el-form-item>
+                <el-button type="danger" @click="submitForm" class="login-btn block1">提交</el-button>
+            </el-form-item>
+        </el-form>
     </div>
 </template>
 
@@ -116,23 +116,24 @@
                 this.axios.post(
                     'student/login',
                     data).then((res)=> {
-                        window.console.log(res)
-                        if(res.data == true){
-                            this.axios.post('student/info').then((res) =>{
-                                window.console.log(res)
-                                this.$store.commit("updateStudentInfo",res.data)
+                    window.console.log(res)
+                    if(res.data == true){
+                        this.axios.post('student/info').then((res) =>{
+                            window.console.log(res)
+                            this.$store.commit("updateStudentInfo",res.data)
 
-                            })
-                            this.axios.post('student/showJointClass').then((res) =>{
-                                window.console.log(res)
-                                this.$store.commit("updateStudentClassInfo",res.data)
-                            })
+                        })
+                        this.axios.post('student/showJointClass').then((res) =>{
+                            window.console.log(res)
+                            this.$store.commit("updateStudentClassInfo",res.data)
                             router.push("student_home")
-                        }else {
-                            window.alert('登录失败')
-                        }
+                        })
 
-                    })
+                    }else {
+                        window.alert('登录失败')
+                    }
+
+                })
 
             }
         }

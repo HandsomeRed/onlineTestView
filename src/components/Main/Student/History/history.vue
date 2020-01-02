@@ -1,19 +1,4 @@
 <template>
-    <div class="header-wrapper">
-        <div class="header-title">
-            <div class="header-tab ">
-                <a href="">当前考试</a>
-            </div>
-            <div class="header-tab active">
-                <a href="">历史考试</a>
-            </div>
-            <div class="header-tab">
-                <a href="">错题本</a>
-            </div>
-        </div>
-
-        <div class="split"></div>
-
         <div class="body-wrapper">
             <div class="item-wrapper item-exam-wrapper clearfix">
                 <!--
@@ -190,7 +175,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 </template>
 
