@@ -9,7 +9,7 @@
                 </div>
                 -->
 
-                <div class="item-wrapper item-exam-wrapper clearfix"  v-for="(exam, index) in examList" v-bind:key='index'>
+                <div class="item-wrapper item-exam-wrapper clearfix"  v-for="(exam, index) in gl" v-bind:key='index'>
                     <div class="item item-exam item-normal animate">
                         <div class="item-title">
                             {{exam.name}}
@@ -17,12 +17,12 @@
 
                         <div class="item-row">
                             <div class="item-label">学科：</div>
-                            <div class="item-data">静态学科</div>
+                            <div class="item-data">程序设计</div>
                         </div>
 
                         <div class="item-row item-start-time">
                             <div class="item-label">考试时间：</div>
-                            <div class="item-data">{{exam.start_time}}～{{exam.release_time}}</div>
+                            <div class="item-data">{{tranDate(exam.startTime)}}～{{tranDate(exam.releaseTime)}}</div>
                         </div>
 
                         <div class="item-row item-row-score">
@@ -30,27 +30,56 @@
                             <div class="item-data">{{exam.duration}}</div>
                         </div>
 
-                        <el-button type="primary" class="exam-btn">查看试卷</el-button>
+                        <div class="item-row item-start-time">
+                            <div class="item-label">提交次数：</div>
+                            <div class="item-data">{{exam.maxSubmit}}</div>
+                        </div>
+
+                        <el-button type="primary" class="exam-btn">开始考试</el-button>
                     </div>
                 </div>
         </div>
 </template>
 
 <script>
+
     export default {
         name: "exam",
-        data(){
+        data() {
+            return {
+                gl: null
+            }
         },
         computed: {
-            examList:{
-                get(){
+            examList: {
+                get() {
                     window.console.log(this.$store.getters.studentExamList)
                     window.console.log(22222)
                     return this.$store.getters.studentExamList
                 }
             }
         },
-        methods:{
+        methods: {
+            tranDate(dt) {
+                var date = new Date(dt)
+                var Y = date.getFullYear() + '-'
+                var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-'
+                var D = date.getDate() + ' '
+                var h = date.getHours() + ':'
+                var m = date.getMinutes() + ':'
+                var s = date.getSeconds()
+                window.console.log(Y + M + D + h + m + s)
+                return (Y + M + D + h + m + s)
+            }
+        },
+        created() {
+            this.axios.post(
+                'student/getCurrentExams'
+            ).then((res) => {
+                window.console.log(res)
+                this.gl = res.data
+                this.$store.commit("updateStudentExamListInfo", res.data)
+            })
         }
     }
 

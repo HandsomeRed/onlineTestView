@@ -32,22 +32,10 @@
         name: "StudentAside",
         methods: {
             examClick(){
-                this.axios.post(
-                    'student/getCurrentExams'
-                ).then((res) =>{
-                    window.console.log(res)
-                    this.$store.commit("updateStudentExamListInfo",res.data)
-                    router.push("student_home_exam")
-                })
+                router.push("student_home_exam")
             },
             classClick(){
-                this.axios.post(
-                    'student/showJointClass'
-                ).then((res) =>{
-                    window.console.log(res)
-                    this.$store.commit("updateStudentClassInfo",res.data)
-                    router.push("student_home")
-                })
+                router.push("student_home")
             }
         }
     }

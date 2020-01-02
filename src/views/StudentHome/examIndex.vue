@@ -39,7 +39,8 @@
     export default {
         name: "examIndex",
         components: {Exam, StudentAside, StudentHeader},
-        comName: "exam"
+        comName: "exam",
+
     }
 </script>
 

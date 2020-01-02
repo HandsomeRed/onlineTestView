@@ -36,7 +36,8 @@
     export default {
         name: "home",
         components: {Class, StudentAside, StudentHeader},
-        comName: "exam"
+        comName: "exam",
+
     }
 </script>
 

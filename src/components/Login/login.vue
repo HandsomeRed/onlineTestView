@@ -121,11 +121,6 @@
                         this.axios.post('student/info').then((res) =>{
                             window.console.log(res)
                             this.$store.commit("updateStudentInfo",res.data)
-
-                        })
-                        this.axios.post('student/showJointClass').then((res) =>{
-                            window.console.log(res)
-                            this.$store.commit("updateStudentClassInfo",res.data)
                             router.push("student_home")
                         })
 

@@ -22,7 +22,7 @@
 
                     <div class="item-row item-row-score">
                         <div class="item-label">教师：</div>
-                        <div class="item-data">李大红</div>
+                        <div class="item-data">{{studentClass.teacher.realName}}</div>
                     </div>
 
                     <div class="item-row item-row-score">
@@ -43,6 +43,9 @@
     export default {
         name: "class",
         data(){
+            return{
+                gl:this.$store.state.student.cl
+            }
         },
         computed: {
             cl:{
@@ -54,6 +57,14 @@
             }
         },
         methods:{
+        },
+        created() {
+            this.axios.post(
+                'student/showJointClass'
+            ).then((res) =>{
+                window.console.log(res)
+                this.$store.commit("updateStudentClassInfo",res.data)
+            })
         }
 
     }
